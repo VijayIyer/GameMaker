@@ -5,7 +5,7 @@ export class TextSprite implements Sprite{
     x:number;
     y:number
     font:string = "20px serif";
-    constructor(text:string, x:number = 5, y:number = 5, width:number = 5){
+    constructor(text:string, x:number = 60, y:number = 60, width:number = 5){
         this.content = text;
         this.x = x;
         this.y = y;

@@ -1,6 +1,6 @@
-import { ImageSprite } from "./image_sprite";
+import { ImageSprite } from "./image_sprite.js";
 import { Sprite } from "./sprite";
-export class GameModel{
+export class GameModel implements Sprite{
     sprites:Array<Sprite> = [];
     backgroundSprite:ImageSprite;
     constructor(){
@@ -16,6 +16,12 @@ export class GameModel{
             }
         }
     }
-
+    draw(canvas: HTMLCanvasElement): void {
+        //this.backgroundSprite.draw(canvas);
+        this.sprites.forEach(sprite=>sprite.draw(canvas));
+    }
+    update(): void {
+        
+    }
 
 }
