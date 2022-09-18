@@ -2,7 +2,7 @@ import { Action } from "../Actions/Action";
 import { Sprite } from "../model/sprite";
 
 export interface Check{
-    conditionTrue(interactingSprites:Array<Sprite>):boolean;
+    isConditionTrue(interactingSprites:Array<Sprite>):boolean;
 }
 
 export interface Interaction{
@@ -26,7 +26,7 @@ export class BaseInteraction implements Interaction{
         this.map =map;
     }
     do() {
-        if(this.check.conditionTrue(this.interactingSprites)){
+        if(this.check.isConditionTrue(this.interactingSprites)){
             this.map.forEach((actionSprite)=>{
                 actionSprite[1].act(actionSprite[0]);
             });
@@ -36,7 +36,7 @@ export class BaseInteraction implements Interaction{
 export class NearBy implements Check{
     description:string ="detect if the 2 sprites are nearby";
 
-    conditionTrue(interactingSprites: Sprite[]): boolean {
+    isConditionTrue(interactingSprites: Sprite[]): boolean {
         return (interactingSprites[0].settableProperties.get("x") >
          interactingSprites[1].settableProperties.get("x"))
          && (interactingSprites[0].settableProperties.get("y") 
@@ -46,10 +46,23 @@ export class NearBy implements Check{
 }
 export class IsBroken implements Check{
     description:string="check if broken";
-    conditionTrue(interactingSprites: Sprite[]): boolean {
+    isConditionTrue(interactingSprites: Sprite[]): boolean {
         if(interactingSprites[0].settableProperties.get("isBroken")){
             return true;
         }
         return false;
+    }
+}
+
+export class OutOfBounds implements Check{
+    description:string="checking if x,y out of bounds";
+    width:number;
+    height:number;
+    constructor(x:number = 100, y:number = 100){
+        this.width = 100;
+        this.height = 100;
+    }
+    isConditionTrue(interactingSprites: Sprite[]): boolean {
+       return true;
     }
 }
