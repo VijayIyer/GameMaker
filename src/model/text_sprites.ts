@@ -1,32 +1,36 @@
 import { Sprite } from "./sprite";
 
 export class TextSprite implements Sprite{
-    content:string = "";
-    x:number;
-    y:number
-    font:string = "20px serif";
-    constructor(text:string, x:number = 60, y:number = 60, width:number = 5){
-        this.content = text;
-        this.x = x;
-        this.y = y;
+    name:string = "Text";
+    settableProperties: Map<string, any> = new Map<string, any>();
+    constructor(text:string = "text", x:number = 10, y:number = 10, 
+    width:number = 5, font:string = "20px serif"){
+        
+        this.settableProperties.set("content", text);
+        this.settableProperties.set("x", x);
+        this.settableProperties.set("y", y);
+        this.settableProperties.set("font", font);
     }
     update(): void {
         
     }
     draw(canvas:HTMLCanvasElement):void{
         let ctx:CanvasRenderingContext2D =canvas.getContext("2d") as CanvasRenderingContext2D;
-        ctx.font = this.font;
-        ctx.fillText(this.content, this.x, this.y);
+        ctx.font = this.settableProperties.get("font");
+        ctx.fillText(this.settableProperties.get("content"),
+            this.settableProperties.get("x"), 
+            this.settableProperties.get("y"));
     }
 }
 
 export class ClockSprite extends TextSprite{
+    name:string = "Clock";
     time:number = 0;
     update():void{
-        this.time+=1;
+
     }
     reset():void{
-        this.time = 0;
+        
     }
     
 }

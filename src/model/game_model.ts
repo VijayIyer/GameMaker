@@ -1,8 +1,12 @@
+import { Interaction } from "../Interactions/interaction.js";
 import { ImageSprite } from "./image_sprite.js";
 import { Sprite } from "./sprite";
 export class GameModel implements Sprite{
+    name:string ="";
+    settableProperties: Map<string, any> = new Map<string, any>();
     sprites:Array<Sprite> = [];
     backgroundSprite:ImageSprite;
+    interactions:Array<Interaction> =[];
     constructor(){
         this.backgroundSprite = new ImageSprite();
     }
@@ -18,7 +22,11 @@ export class GameModel implements Sprite{
     }
     draw(canvas: HTMLCanvasElement): void {
         //this.backgroundSprite.draw(canvas);
-        this.sprites.forEach(sprite=>sprite.draw(canvas));
+        let newSprites:Array<Sprite> = [...this.sprites];
+        newSprites.unshift(this.backgroundSprite);
+        for(let sprite of newSprites){
+            sprite.draw(canvas);
+        }
     }
     update(): void {
         

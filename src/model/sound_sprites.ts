@@ -1,12 +1,16 @@
 import { Sprite } from "./sprite";
 
 export class SoundSprite implements Sprite{
-    audioSrc:string = "";
+    name:string ="";
+    settableProperties: Map<string, any> = new Map<string, any>();
+    constructor(audioSrc:string = ""){
+        this.settableProperties.set("audioSrc", audioSrc);
+    }
     draw(canvas:HTMLCanvasElement):void{
 
     }
     setAudioSrc(src:string):void{
-        this.audioSrc = src;
+        this.settableProperties.set("audioSrc", src);
     }
     update():void{
 
