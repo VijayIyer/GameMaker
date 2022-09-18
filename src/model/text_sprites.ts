@@ -35,5 +35,12 @@ export class ClockSprite extends TextSprite{
     reset():void{
         
     }
+    draw(canvas:HTMLCanvasElement):void{
+        let ctx:CanvasRenderingContext2D =canvas.getContext("2d") as CanvasRenderingContext2D;
+        ctx.font = this.settableProperties.get("font");
+        ctx.fillText(this.time.toString(),
+            this.settableProperties.get("x"), 
+            this.settableProperties.get("y"));
+    }
     
 }

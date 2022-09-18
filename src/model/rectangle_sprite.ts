@@ -1,7 +1,7 @@
 import { Sprite } from "./sprite";
 
 export class Rectangle implements Sprite{
-    readonly name:string ="Rectangle";
+    name:string ="Rectangle";
     settableProperties: Map<string, any> = new Map<string, any>();
     constructor(x:number = 0, y:number = 0, color:string = "black", width:number= 30, 
         height:number = 30){
@@ -10,6 +10,7 @@ export class Rectangle implements Sprite{
         this.settableProperties.set("color", color);
         this.settableProperties.set("width",width);
         this.settableProperties.set("height", height);
+        this.settableProperties.set("isBroken", 0);
     }
     getPropertyNames():Array<string>{
         let array:Array<string> = [];
@@ -25,11 +26,13 @@ export class Rectangle implements Sprite{
         
     }
     draw(canvas: HTMLCanvasElement): void {
+        if(this.settableProperties.get("isBroken") == 0){
         let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
         ctx.fillStyle=this.settableProperties.get("color") as string;
         ctx.fillRect(this.settableProperties.get("x"), 
         this.settableProperties.get("y"),
         this.settableProperties.get("width"),
         this.settableProperties.get("height"));
+        }
     }
 }

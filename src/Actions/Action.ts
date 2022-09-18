@@ -1,5 +1,6 @@
 import {Rectangle} from "../model/rectangle_sprite";
 import { Sprite } from "../model/sprite";
+import { ClockSprite } from "../model/text_sprites";
 export interface Action{
     description:string;
     act(model:Sprite):void;
@@ -54,8 +55,8 @@ export class MoveUp extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        // shape.settableProperties.set("y", shape.settableProperties.get("y") - this.amt);
-        // console.log(shape.settableProperties.get("y"));
+        shape.settableProperties.set("y", shape.settableProperties.get("y") - this.amt);
+        console.log(shape.settableProperties.get("y"));
     }
 }
 export class MoveDown extends BaseAction{
@@ -105,6 +106,13 @@ export class MoveX implements Action{
         this.amt = amt;
     }
 }
+export class BlowUp implements Action{
+    description:string = "change boolean";
+    act(model: Rectangle): void {
+        model.settableProperties.set("isBroken", 1);
+    }
+}
+
 export class MoveY implements Action{
     description:string = "Move Vertically"
     amt:number = 2;
@@ -143,4 +151,17 @@ export class Bouncing implements Action{
         this.vy = -this.vy;
     }
     
+}
+
+export class DecreaseTime implements Action{
+    description:string="descrease time!";
+    act(sprite:ClockSprite){
+        sprite.time -= 1;
+    }
+}
+export class IncreaseTime implements Action{
+    description:string="descrease time!";
+    act(sprite:ClockSprite){
+        sprite.time += 1;
+    }
 }

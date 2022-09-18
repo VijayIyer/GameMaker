@@ -3,7 +3,7 @@ export interface Control{
     isTriggered():boolean;
     
 }
-export class Control implements Control{
+export class BaseControl implements Control{
     description:string = "";
     private triggered:boolean = false;
     isTriggered(): boolean {

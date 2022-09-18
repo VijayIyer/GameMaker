@@ -1,7 +1,7 @@
 import { Sprite } from "./sprite";
 
 export class Circle implements Sprite{
-    readonly name:string ="Circle";
+    name:string ="Circle";
     
     settableProperties: Map<string, any> = new Map<string, any>();
     constructor(x:number = 10, y:number = 20, color:string = "red", 
