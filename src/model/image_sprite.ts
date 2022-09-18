@@ -12,6 +12,9 @@ export class ImageSprite implements Sprite{
     setImageSrc(src:string){
         this.src = src;
     }
+    getPropertyNames(): string[] {
+        return [];
+    }
     update(): void {
         
     }

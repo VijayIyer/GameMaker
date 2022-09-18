@@ -1,0 +1,11 @@
+label {
+    color: #B4886B;
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    float: left;
+    }
+label:after { content: ": " }
+input {
+    margin: 6px 0;
+    }

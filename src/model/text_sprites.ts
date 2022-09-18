@@ -14,6 +14,9 @@ export class TextSprite implements Sprite{
     update(): void {
         
     }
+    getPropertyNames(): string[] {
+        return [...this.settableProperties.keys()];
+    }
     draw(canvas:HTMLCanvasElement):void{
         let ctx:CanvasRenderingContext2D =canvas.getContext("2d") as CanvasRenderingContext2D;
         ctx.font = this.settableProperties.get("font");

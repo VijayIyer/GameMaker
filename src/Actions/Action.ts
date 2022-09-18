@@ -28,8 +28,9 @@ export class MoveLeft extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        // shape.settableProperties.set("x", shape.settableProperties.get("x")- this.amt);
-        // console.log(shape.settableProperties.get("x"));
+        if(shape.settableProperties.get("x") != undefined){
+            shape.settableProperties.set("x", shape.settableProperties.get("x") - this.amt);
+        }
     }
 }
 export class MoveRight extends BaseAction{
@@ -39,7 +40,10 @@ export class MoveRight extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        // shape.settableProperties.set("x", shape.settableProperties.get("x") + this.amt);
+        if(shape.settableProperties.get("x") != undefined){
+            shape.settableProperties.set("x", shape.settableProperties.get("x") + this.amt);
+        }
+        
         // console.log(shape.settableProperties.get("x"));
     }
 }
@@ -61,8 +65,9 @@ export class MoveDown extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        // shape.settableProperties.set("y", shape.settableProperties.get("y") + this.amt);
-        // console.log(shape.settableProperties.get("y"));
+        if(shape.settableProperties.get("y") != undefined){
+            shape.settableProperties.set("y", shape.settableProperties.get("y") + this.amt);
+        }
     }
 }
 export class Break implements Effect{

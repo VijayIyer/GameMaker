@@ -1,7 +1,7 @@
 import { Sprite } from "./sprite";
 
 export class SoundSprite implements Sprite{
-    name:string ="";
+    name:string ="SoundSprite";
     settableProperties: Map<string, any> = new Map<string, any>();
     constructor(audioSrc:string = ""){
         this.settableProperties.set("audioSrc", audioSrc);
@@ -14,5 +14,8 @@ export class SoundSprite implements Sprite{
     }
     update():void{
 
+    }
+    getPropertyNames(): string[] {
+        return [];
     }
 }

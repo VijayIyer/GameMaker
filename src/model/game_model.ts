@@ -10,7 +10,11 @@ export class GameModel implements Sprite{
     constructor(){
         this.backgroundSprite = new ImageSprite();
     }
+    getPropertyNames(): Array<string> {
+        return [];
+    }
     add(sprite:Sprite){
+        console.log("adding sprite");
         this.sprites.push(sprite);
     }
     remove(sprite:Sprite){
@@ -23,7 +27,7 @@ export class GameModel implements Sprite{
     draw(canvas: HTMLCanvasElement): void {
         //this.backgroundSprite.draw(canvas);
         let newSprites:Array<Sprite> = [...this.sprites];
-        newSprites.unshift(this.backgroundSprite);
+        //newSprites.unshift(this.backgroundSprite);
         for(let sprite of newSprites){
             sprite.draw(canvas);
         }

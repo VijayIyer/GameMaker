@@ -1,10 +1,10 @@
 import { Sprite } from "./sprite";
 
 export class Circle implements Sprite{
-    name:string ="Circle";
+    readonly name:string ="Circle";
     
     settableProperties: Map<string, any> = new Map<string, any>();
-    constructor(x:number = 0, y:number = 0, color:string = "red", 
+    constructor(x:number = 10, y:number = 20, color:string = "red", 
         radius:number = 20, width:number = 20, height:number = 30){
         this.settableProperties.set("x", x);
         this.settableProperties.set("y", y);
