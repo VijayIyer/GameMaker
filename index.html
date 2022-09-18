@@ -3,38 +3,36 @@
     <link rel="stylesheet" href="/src/styles/addBtn.css">
     <link rel="stylesheet" href="/src/styles/sprite_preview_option_style.css">
     <link rel="stylesheet" href="/src/styles/label_input_pair.css">
+    <!-- <link rel="stylesheet" href="/src/styles/select_styles.css"> -->
     <script type="module" src="out/index.js"></script>
 </head>
 <body>
     <h1>A4 Game Maker</h1>
+    <div id="container">
+    <div><button class="addBtn" id="newGameBtn">New Game</button></div>
+    <div><button  class="addBtn" id="changeSavedGame">Changes to Saved Game</button></div>
+        
+    
     <div>
-        <div id="newGameDetails">
-            <button class="addBtn" id="presetSprites">Preset Sprites</button>
-            
-            <input type="file" id="uploadedFile" hidden/>
-            <div id="container">
-
-            </div>
-            <button class="addBtn" id="addBackgroundPicBtn">Add Background Picture</button>
-            <button class="addBtn" id="addSelectedSprite">Add Selected Sprite</button>
+        
+        <div>
+            <button class="addBtn" id="playAudio">Play</button>
+            <!-- <input type="file" id="audio-file" accept="audio/mpeg, audio/ogg, audio/*" /> -->
             <div>
-                <h3>Sprite Preview</h3>
-                <canvas id="spritePreview"></canvas>
+                <select id="soundSourcesList">
                 
-                    <h4>Sprite Details</h4>
-                    <div id="spriteDetails">
-                    </div>
+                </select>
             </div>
-            <div>
-                <button class="addBtn" id="startGame">Start Game</button>
-            </div>
-            <div>
-                <h3>Full Game Preview</h3>
-                <canvas id="preview" width="200" height="200"></canvas>
-            </div>
+           
         </div>
+    <audio controls loop
+        src="/src/assets/sounds/mp3/Komiku - Helice Awesome Dance Adventure !! - 02 Hélice's Theme.mp3" id="audioSrc">
+    </audio>
+    <div class="addBtn">
+        Add Selected to Game
     </div>
-        <button class="addBtn">&#8249;</a>
-        <button class="addBtn">&#8250;</a>
     </div>
+    </div>
+    <button class="addBtn previous round">&#8249;</button>
+    <button class="addBtn next round">&#8250;</button>
 </body>
