@@ -1,5 +1,5 @@
 import { GameModel } from "./model/game_model.js";
-import {presetSprites, soundPaths} from "./constants.js";
+
 import { ImageSprite } from "./model/image_sprite.js";
 import { ClockSprite, TextSprite } from "./model/text_sprites.js";
 import { Circle} from "./model/circle_sprite.js";
@@ -9,23 +9,26 @@ import { Sprite } from "./model/sprite.js";
 import { GameMakerController } from "./Controller/game_maker_controller.js";
 import { BaseControl } from "./Controls/controls.js";
 import { IsBroken, NearBy } from "./Interactions/interaction.js";
-import { GameMakerMenuView, NewGameFormView } from "./view/game_maker_views.js";
+import { NewGameDetailsView, NewGameFormView } from "./view/game_maker_views.js";
 let parentDiv = document.getElementById("container") as HTMLElement;
 
 function run(){
+
+    // if user clicks 'New Game'
     let newGameBtn = document.getElementById("newGameBtn");
     newGameBtn?.addEventListener("click", ()=>{
         let newGameForm = new NewGameFormView();    
-        newGameForm.render(parentDiv);
+        newGameForm.render(parentDiv);        
     });
 
+    // if user clicks 'Changes to saved game'
     let changeSavedGameBtn = document.getElementById("changeSavedGameBtn");
     changeSavedGameBtn?.addEventListener("click", ()=>{
-    
+        
         });
     
     }
-//window.addEventListener("load", run);
+window.addEventListener("load", run);
 
 /*
 // testing it out
@@ -241,30 +244,30 @@ controller.addInteraction(new IsBroken(), ["rect1"], map2);
 // }, 10);
 */
 
-let soundSrcList = document.getElementById("soundSourcesList") as HTMLSelectElement;
-soundPaths.forEach(path=>{
-    console.log(path);
-    let option = document.createElement("option");
-    option.innerHTML = path;
-    option.value = path;
-    soundSrcList?.appendChild(option);
-})
-let audioSrc = document.getElementById("audioSrc") as HTMLAudioElement;
-soundSrcList?.addEventListener("change", (e)=>{
-    audioSrc.setAttribute("src", soundSrcList.value);
-});
-let playing = false;
-let audioBtn = document.getElementById("playAudio") as HTMLButtonElement;
-audioBtn.addEventListener("click", ()=>{
-    if(playing){
-        audioSrc.pause();
-        playing = false;
-    }
-    else{
+// let soundSrcList = document.getElementById("soundSourcesList") as HTMLSelectElement;
+// soundPaths.forEach(path=>{
+//     console.log(path);
+//     let option = document.createElement("option");
+//     option.innerHTML = path;
+//     option.value = path;
+//     soundSrcList?.appendChild(option);
+// })
+// let audioSrc = document.getElementById("audioSrc") as HTMLAudioElement;
+// soundSrcList?.addEventListener("change", (e)=>{
+//     audioSrc.setAttribute("src", soundSrcList.value);
+// });
+// let playing = false;
+// let audioBtn = document.getElementById("playAudio") as HTMLButtonElement;
+// audioBtn.addEventListener("click", ()=>{
+//     if(playing){
+//         audioSrc.pause();
+//         playing = false;
+//     }
+//     else{
 
-        audioSrc.play();
-        playing = true;
-    }
+//         audioSrc.play();
+//         playing = true;
+//     }
     
-});
+// });
 

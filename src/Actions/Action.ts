@@ -29,9 +29,8 @@ export class MoveLeft extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        if(shape.settableProperties.get("x") != undefined){
-            shape.settableProperties.set("x", shape.settableProperties.get("x") - this.amt);
-        }
+        let currentVal = shape.getConvertedValue("x");
+            shape.setValue("x", (currentVal - this.amt).toString());
     }
 }
 export class MoveRight extends BaseAction{
@@ -41,12 +40,11 @@ export class MoveRight extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        if(shape.settableProperties.get("x") != undefined){
-            shape.settableProperties.set("x", shape.settableProperties.get("x") + this.amt);
+        let currentVal = shape.getConvertedValue("x");
+        shape.setValue("x", (currentVal + this.amt).toString());
         }
         
         // console.log(shape.settableProperties.get("x"));
-    }
 }
 export class MoveUp extends BaseAction{
     constructor(amt:number){
@@ -55,8 +53,8 @@ export class MoveUp extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        shape.settableProperties.set("y", shape.settableProperties.get("y") - this.amt);
-        console.log(shape.settableProperties.get("y"));
+        let currentVal = shape.getConvertedValue("y");
+            shape.setValue("y", (currentVal - this.amt).toString());
     }
 }
 export class MoveDown extends BaseAction{
@@ -66,10 +64,9 @@ export class MoveDown extends BaseAction{
     }
     act(shape: Sprite): void {
         super.act(shape);
-        if(shape.settableProperties.get("y") != undefined){
-            shape.settableProperties.set("y", shape.settableProperties.get("y") + this.amt);
+        let currentVal = shape.getConvertedValue("y");
+            shape.setValue("y", (currentVal + this.amt).toString());        
         }
-    }
 }
 export class Break implements Effect{
     description: string;
@@ -77,11 +74,10 @@ export class Break implements Effect{
         this.description = "break!";
     }
     act(shape: Rectangle): void {
-        if(shape.settableProperties.get("isBroken") != undefined){
-            shape.settableProperties.set("isBroken", true);
+        let currentVal = shape.getConvertedValue("isBroken");
+            shape.setValue("isBroken", "true");
         }
         
-    }
 }
 export class CompundAction implements Action{
     description: string = "";
@@ -109,7 +105,7 @@ export class MoveX implements Action{
 export class BlowUp implements Action{
     description:string = "change boolean";
     act(model: Rectangle): void {
-        model.settableProperties.set("isBroken", 1);
+        model.setValue("isBroken", "true");
     }
 }
 

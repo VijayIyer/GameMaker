@@ -4,7 +4,9 @@
   "description": "oosd",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start":"npm run lite",
+    "lite":"tsc && lite-server"
   },
   "repository": {
     "type": "git",

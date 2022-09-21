@@ -37,17 +37,17 @@ export class NearBy implements Check{
     description:string ="detect if the 2 sprites are nearby";
 
     isConditionTrue(interactingSprites: Sprite[]): boolean {
-        return (interactingSprites[0].settableProperties.get("x") >
-         interactingSprites[1].settableProperties.get("x"))
-         && (interactingSprites[0].settableProperties.get("y") 
-         > interactingSprites[1].settableProperties.get("y") - 30); 
+        return (interactingSprites[0].getConvertedValue("x") >
+         interactingSprites[1].getConvertedValue("x"))
+         && (interactingSprites[0].getConvertedValue("y") 
+         > interactingSprites[1].getConvertedValue("y") - 30); 
         
     }
 }
 export class IsBroken implements Check{
     description:string="check if broken";
     isConditionTrue(interactingSprites: Sprite[]): boolean {
-        if(interactingSprites[0].settableProperties.get("isBroken")){
+        if(interactingSprites[0].getConvertedValue("isBroken")){
             return true;
         }
         return false;
