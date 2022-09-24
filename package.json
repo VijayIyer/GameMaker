@@ -1,0 +1,25 @@
+{
+  "name": "team3-gamemaker",
+  "version": "1.0.0",
+  "description": "oosd",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start":"npm run lite",
+    "lite":"tsc && lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.iu.edu/P532-OOSD/f22-week4-team3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

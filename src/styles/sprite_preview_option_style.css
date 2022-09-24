@@ -1,0 +1,13 @@
+.spriteTemplateOption{
+    border-color: black;
+    border-style: groove;
+    width: fit-content;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    float: left;
+}
+.spriteTemplateOption:hover{
+    cursor: pointer;
+}
